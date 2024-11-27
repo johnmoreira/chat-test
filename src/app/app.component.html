@@ -1,0 +1,34 @@
+<router-outlet></router-outlet>
+
+<div class="container-fluid main-app">
+  <div class="d-flex">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg ">
+        <a class="navbar-brand ms-2">Algo legal</a>
+        <div class="d-flex"></div>
+      </nav>
+      <div class="row">
+        <div class="col-6">
+          <form [formGroup]="formChat" (ngSubmit)="sendMessage()">
+            <input type="text" class="form-control" formControlName="msg">
+            <a href="javascript:void(0)" class="btn btn-sm">enviar mensagem</a>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <h5 class="card-title m-2">Conversas</h5>
+            <div class="card-body">
+              <div class="row">
+                <span *ngFor="let item of item$ | async">
+                  {{ item.text }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
